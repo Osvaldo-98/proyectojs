@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>tareas</title>
+    <style>
+        body{
+        color: rgb(14, 13, 11);
+        background-image: url('http://www.telepaisa.com/global_imagenes_cache/1327023616_jpg_a5c1cbd8620cb5f43873fad356095192.jpg');
+        background-size: cover;
+        background-position: 0 0;
+        }
+
+        header{
+        background-color: #000;
+        min-height: 200px;
+        background-image: url('https://media.tenor.com/images/b7499878f32431119a859fb72add3b20/tenor.gif');
+        background-size: contain;
+        background-position: center;
+        }
+        main{
+        width: 500px;
+        margin: 0 auto;
+        }
+
+        #tareas{
+        color: rgba(252, 13, 172, 0.829);
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        }
+
+        #tareas div{
+       
+        margin: 1rem;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        }
+
+        button{
+            background-color: rgb(119, 151, 241);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+          <h1>Tareas</h1>
+        </header>
+        <div class="contenedor">
+          <input type="text" id="txt">
+          <button id="ok">ok</button>
+        </div>
+        
+        <div id="tareas">
+          
+        </div>
+    </main>
+    <audio src="./Sufrir.mp3" autoplay></audio>
+
+    <script>
+        const contenedor = document.querySelector('.contenedor');
+        const ta = document.querySelector('#tareas');
+        const ok = document.querySelector('#ok');
+        const txt = document.querySelector('#txt');
+
+        ok.addEventListener('click',()=>{
+        let tarea = document.createElement('div');
+        tarea.innerHTML = txt.value +  '<button id="ok">ok</button> <button id="borrar">borrar</button>';
+        ta.appendChild(tarea);
+        })
+
+        ta.addEventListener('click',(e)=>{
+        if( e.target.id === 'ok'){
+            e.target.parentElement.style.textDecoration = 'line-through';
+        }
+        if(e.target.id === 'borrar'){
+            e.target.parentElement.style.display = 'none';
+        }
+        
+        })
+    </script>
+</body>
+</html>
